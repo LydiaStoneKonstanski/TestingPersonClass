@@ -23,6 +23,32 @@ public class TestPerson {
         Assert.assertEquals(expectedName, actualName);
         Assert.assertEquals(expectedAge, actualAge);
     }
+    @Test
+    public void testAllFieldsConstructor() {
+        // Given
+        String expectedName = "June Smith";
+        Integer expectedAge = 32;
+        boolean expectedDancer = true;
+        String expectedDanceStyle = "Ballroom";
+        boolean expectedInstructor = false;
+
+        // When
+        Person person = new Person(expectedName, expectedAge, expectedDancer, expectedDanceStyle, expectedInstructor);
+
+        // Then
+        String actualName = person.getName();
+        Integer actualAge = person.getAge();
+        boolean actualDancer = person.getDancer();
+        String actualDanceStyle = person.getDanceStyle();
+        boolean actualInstructor = person.getInstructor();
+
+
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedDancer, actualDancer);
+        Assert.assertEquals(expectedDanceStyle, actualDanceStyle);
+        Assert.assertEquals(expectedInstructor, actualInstructor);
+    }
 
     @Test
     public void testConstructorWithName() {
@@ -93,6 +119,46 @@ public class TestPerson {
 
         // Then
         Integer actual = person.getAge();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testSetDancer() {
+        // Given
+        Person person = new Person();
+        boolean expected = true;
+
+        // When
+        person.setDancer(true);
+
+        // Then
+        boolean actual = person.getDancer();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testSetDanceStyle() {
+        // Given
+        Person person = new Person();
+        String expected = "Blues";
+
+        // When
+        person.setDanceStyle(expected);
+
+        // Then
+        String actual = person.getDanceStyle();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetInstructor() {
+        // Given
+        Person person = new Person();
+        boolean expected = false;
+
+        // When
+        person.setInstructor(expected);
+
+        // Then
+        boolean actual = person.getInstructor();
         Assert.assertEquals(expected, actual);
     }
 }
